@@ -11,11 +11,11 @@ IV = b'This is an IV456'
 
 cipher = AES.new(key,mode,IV)
 
-with open('encrypted_secret', 'rb') as e:
+with open('encryptetCloud.txt', 'rb') as e:
     encrypted_file = e.read()
 
 print("Encrypted File:", encrypted_file)
-decrypted_file = cipher.decrypt(encrypted_file)
+decrypted_file = cipher.decrypt(eval(encrypted_file))
 
 with open('decrypted_secret.txt', 'wb') as df:
     df.write(decrypted_file.rstrip(b'0'))

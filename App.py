@@ -142,5 +142,10 @@ ScreenManager:
         font_size: 40
         halign: 'center'
         pos_hint:{'center_x': 0.5, 'center_y': 0.65}
+    MDRectangleFlatButton:
+        text: 'logout'
+        pos_hint: {'center_x':0.5,'center_y':0.35}
+        on_release: root.manager.current = 'login'
+
     
 """
