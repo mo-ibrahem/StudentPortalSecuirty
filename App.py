@@ -109,8 +109,12 @@ ScreenManager:
         width:450
     MDRectangleFlatButton:
         text: 'Submit'
-        pos_hint: {'center_x':0.5,'center_y':0.2}
+        pos_hint: {'center_x':0.5,'center_y':0.3}
         on_release: app.verifyOtp()
+    MDRectangleFlatButton:
+        text: 'Sign out'
+        pos_hint: {'center_x':0.5,'center_y':0.2}
+        on_release: root.manager.current = 'login'
 
 <studentCredentials>:
     name: 'stcredentials'
@@ -133,6 +137,10 @@ ScreenManager:
         text: 'Submit'
         pos_hint: {'center_x':0.5,'center_y':0.25}
         on_release: app.checkCredentials()
+    MDRectangleFlatButton:
+        text: 'Logout'
+        pos_hint: {'center_x':0.5,'center_y':0.15}
+        on_release: root.manager.current = 'login'
 
 <showStudentCredentials>:
     name: 'showCredentials'

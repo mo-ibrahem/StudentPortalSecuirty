@@ -102,11 +102,11 @@ class StudentPortalApp(MDApp):
                     )
                     self.root.current = 'otpscreen'
                 else:
-                    os.system("""osascript -e 'Tell application "System Events" to display dialog "This is not a british phone number" with title "Hello Matey"'""")
+                    os.system("""osascript -e 'Tell application "System Events" to display dialog "This is not a british phone number" with title "Action Needed"'""")
             except ValueError:
-                os.system("""osascript -e 'Tell application "System Events" to display dialog "Please Enter a Valid phone number" with title "Hello Matey"'""")
+                os.system("""osascript -e 'Tell application "System Events" to display dialog "Please Enter a Valid phone number" with title "Action Needed"'""")
         else:
-            os.system("""osascript -e 'Tell application "System Events" to display dialog "Please Enter a User name" with title "Hello Matey"'""")
+            os.system("""osascript -e 'Tell application "System Events" to display dialog "Please Enter a User name" with title "Action Needed"'""")
 
 
     def clear(self):
@@ -159,7 +159,7 @@ class StudentPortalApp(MDApp):
 
 
             #  Uploading files to Dropbox
-            token = 'sl.BFPU6vpiA35SmjcVM1hyOMi1xi_yAFoerwpn22IlzdifbYISEr5HRgT5XyC0vACmvwR9WJIXAjuKoBTI7_nSWi_gtYbKWTuu11Fde5Z_Bj-LsjRybmnGoKhZgAocv9rMbk1n7usGR1Yj'
+            token = 'sl.BFQZD0KyARKulR3VGT_GNw5ADpmCqeXu7LSWQKuaENqEAlQEuoiHQtv35-LPlpzMtFot_04fddo-c3_fVK0pJ50WzkfbnfC6Vkx-2-T4U6gE2_9W95sYwbSl5gWFQRplCnmqNR3Z5X9P'
         
 
             file_from = 'encrypted_secret.txt'
@@ -170,7 +170,8 @@ class StudentPortalApp(MDApp):
             # Update the welcome message
             self.root.get_screen('home').ids.homepage_label.text = "Welcome Student please note that your Student ID is: " + str(id_st[0])
         else:
-            print("Number exists")
+            os.system("""osascript -e 'Tell application "System Events" to display dialog "Invalid OTP" with title "Action Needed"'""")
+            self.root.current = 'otpscreen'
 
         # commit our changes
         
@@ -214,7 +215,7 @@ class StudentPortalApp(MDApp):
         if IDname[0][0] == id[0][0]:
             
             # Retriving from the cloud
-            token = 'sl.BFPU6vpiA35SmjcVM1hyOMi1xi_yAFoerwpn22IlzdifbYISEr5HRgT5XyC0vACmvwR9WJIXAjuKoBTI7_nSWi_gtYbKWTuu11Fde5Z_Bj-LsjRybmnGoKhZgAocv9rMbk1n7usGR1Yj'
+            token = 'sl.BFQZD0KyARKulR3VGT_GNw5ADpmCqeXu7LSWQKuaENqEAlQEuoiHQtv35-LPlpzMtFot_04fddo-c3_fVK0pJ50WzkfbnfC6Vkx-2-T4U6gE2_9W95sYwbSl5gWFQRplCnmqNR3Z5X9P'
             DBX = dropbox.Dropbox(token)
             res, rawData = DBX.files_download('/LoginPortal/CypherTextStudentCredentials/StudentID_'+str(IDname[0][0])+'.txt')
             s = ''
@@ -230,10 +231,10 @@ class StudentPortalApp(MDApp):
             if file_has_checksum('decrypted_secret.txt'):
                 self.root.get_screen('showCredentials').ids.change.text = f'This is your student credentials please keep it secure.\n\nStudent name: {IDname[0][1]}\nStudent Phone: {IDname[0][2]}'
             else:
-                os.system("""osascript -e 'Tell application "System Events" to display dialog "File is corrupted." with title "Hello Matey"'""")
+                os.system("""osascript -e 'Tell application "System Events" to display dialog "File is corrupted." with title "Action Needed"'""")
 
         else:
-            os.system("""osascript -e 'Tell application "System Events" to display dialog "Please Check your ID again" with title "Hello Matey"'""")
+            os.system("""osascript -e 'Tell application "System Events" to display dialog "Please Check your ID again" with title "Action Needed"'""")
             self.root.current = 'stcredentials'
 
         exec(open('AESD.py').read())
