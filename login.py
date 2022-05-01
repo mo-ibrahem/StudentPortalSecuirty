@@ -8,12 +8,11 @@ import random
 import phonenumbers
 import dropbox
 import hashlib
-import string
 from twilio.rest import Client
 # Screne helper
 
 acc_SID = 'ACf792d7660cfe1cbe6ce1f38d08b946e5'
-auth_token  = '4f8562d63926e05652855bf717c28884'
+auth_token  = 'cf82f68a65a11c3d7e68abbc600e68e5'
 global studentID
 studentID = 20220000
 
@@ -159,7 +158,7 @@ class StudentPortalApp(MDApp):
 
 
             #  Uploading files to Dropbox
-            token = 'sl.BFQZD0KyARKulR3VGT_GNw5ADpmCqeXu7LSWQKuaENqEAlQEuoiHQtv35-LPlpzMtFot_04fddo-c3_fVK0pJ50WzkfbnfC6Vkx-2-T4U6gE2_9W95sYwbSl5gWFQRplCnmqNR3Z5X9P'
+            token = 'sl.BFWDsOEjCjUeQljjUGUqlN_29fUhQ4Wl7VYmU4i1a_M0SvsH4l5XLUR1BJmeroOdXNMREHaQ5I9zRQKd8gJifqct0WIT8pNP0_n2M0-_d-7_SFERekxnt476OGIIn7EtwY6Z4HezXqvL'
         
 
             file_from = 'encrypted_secret.txt'
@@ -215,7 +214,7 @@ class StudentPortalApp(MDApp):
         if IDname[0][0] == id[0][0]:
             
             # Retriving from the cloud
-            token = 'sl.BFQZD0KyARKulR3VGT_GNw5ADpmCqeXu7LSWQKuaENqEAlQEuoiHQtv35-LPlpzMtFot_04fddo-c3_fVK0pJ50WzkfbnfC6Vkx-2-T4U6gE2_9W95sYwbSl5gWFQRplCnmqNR3Z5X9P'
+            token = 'sl.BFWDsOEjCjUeQljjUGUqlN_29fUhQ4Wl7VYmU4i1a_M0SvsH4l5XLUR1BJmeroOdXNMREHaQ5I9zRQKd8gJifqct0WIT8pNP0_n2M0-_d-7_SFERekxnt476OGIIn7EtwY6Z4HezXqvL'
             DBX = dropbox.Dropbox(token)
             res, rawData = DBX.files_download('/LoginPortal/CypherTextStudentCredentials/StudentID_'+str(IDname[0][0])+'.txt')
             s = ''
